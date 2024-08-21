@@ -8,13 +8,22 @@
     <script src="index.js" defer></script>
 </head>
 <body>
-    <h1>Skypiea</h1>
-    <p>[DESCRIPTION]</p>
+    <div>
+        <h1>Skypiea</h1>
+        <p>[DESCRIPTION]</p>
+        <button class="f-btn">Fahrenheit</button>
+        <button class="c-btn">Celsius</button>
+    </div>
     <div>
         <label for="location">What location are we checking today?</label>
         <input id="location" type="text"/>
         <button class="search-btn">Search</button>
-        <div class="result-display"></div>
+        <div class="result-display">
+            <p class="condition">Condition: </p>
+            <p class="temperature">Temperature: </p>
+            <p class="feels-like">Feels Like: </p>
+            <p class="humidity">Humidity: </p>
+        </div>
     </div>
 </body>
 </html>
