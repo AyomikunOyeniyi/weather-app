@@ -1,9 +1,14 @@
+import checkMetrics from "./convert";
+
 const weatherLocation = document.getElementById('location');
 const searchBtn = document.querySelector('.search-btn');
 const resultsDisplay = document.querySelector('.result-display');
 
+let isFahrenheit = true;
+let isCelsius = false;
+
 async function fetchWeatherData(locationValue) {
-    const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationValue}?key=BW6YSKFATY4DVP95GN9EGPGTB`);
+    const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationValue}&unitGroup=?key=BW6YSKFATY4DVP95GN9EGPGTB`);
 
     const returnedData = await response.json();
 
