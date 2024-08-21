@@ -1,5 +1,6 @@
 const weatherLocation = document.getElementById('location');
 const searchBtn = document.querySelector('button');
+const resultsDisplay = document.querySelector('.result-display');
 
 async function fetchWeatherData(locationValue) {
     const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationValue}?key=BW6YSKFATY4DVP95GN9EGPGTB`);
@@ -7,7 +8,7 @@ async function fetchWeatherData(locationValue) {
     const returnedData = await response.json();
 
     const weatherData = extractLocationData(returnedData);
-    console.log(weatherData);
+    populateResultsDisplay(weatherData);
 }
 
 searchBtn.addEventListener('click', () => fetchWeatherData(weatherLocation.value));
@@ -21,4 +22,16 @@ function extractLocationData(responseObj) {
     data.humidity = responseObj.currentConditions.humidity
 
     return data;
+}
+
+function populateResultsDisplay(weatherObj) {
+    const condPara = document.querySelector('.condition');
+    const tempPara = document.querySelector('.temperature');
+    const feelPara = document.querySelector('.feels-like');
+    const humPara = document.querySelector('.humidity');
+
+    condPara.textContent += `${weatherObj.condition}`
+    tempPara.textContent += `${weatherObj.temperature}`
+    feelPara.textContent += `${weatherObj.feelsLike}`
+    humPara.textContent += `${weatherObj.humidity}`
 }
