@@ -1,5 +1,5 @@
 const weatherLocation = document.getElementById('location');
-const searchBtn = document.querySelector('button');
+const searchBtn = document.querySelector('.search-btn');
 const resultsDisplay = document.querySelector('.result-display');
 
 async function fetchWeatherData(locationValue) {
@@ -11,7 +11,9 @@ async function fetchWeatherData(locationValue) {
     populateResultsDisplay(weatherData);
 }
 
-searchBtn.addEventListener('click', () => fetchWeatherData(weatherLocation.value));
+searchBtn.addEventListener('click', () => {
+    fetchWeatherData(weatherLocation.value)
+});
 
 function extractLocationData(responseObj) {
     let data = {};
