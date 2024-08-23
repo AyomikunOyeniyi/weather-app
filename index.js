@@ -1,14 +1,21 @@
-import checkMetrics from "./convert";
-
 const weatherLocation = document.getElementById('location');
 const searchBtn = document.querySelector('.search-btn');
+const celBtn = document.querySelector('.c-btn');
+const fahrBtn = document.querySelector('.f-btn');
 const resultsDisplay = document.querySelector('.result-display');
 
+export default function checkMetrics(fahrenheitState) {
+    if (fahrenheitState) {
+        return 'us';
+    } else {
+        return 'uk';
+    }
+}
+
 let isFahrenheit = true;
-let isCelsius = false;
 
 async function fetchWeatherData(locationValue) {
-    const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationValue}&unitGroup=?key=BW6YSKFATY4DVP95GN9EGPGTB`);
+    const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationValue}?&unitGroup=${checkMetrics(isFahrenheit)}&key=BW6YSKFATY4DVP95GN9EGPGTB`);
 
     const returnedData = await response.json();
 
@@ -18,6 +25,16 @@ async function fetchWeatherData(locationValue) {
 
 searchBtn.addEventListener('click', () => {
     fetchWeatherData(weatherLocation.value)
+});
+
+celBtn.addEventListener('click', () => {
+    isFahrenheit = false;
+    fetchWeatherData(weatherLocation.value);
+});
+
+fahrBtn.addEventListener('click', () => {
+    isFahrenheit = true;
+    fetchWeatherData(weatherLocation.value);
 });
 
 function extractLocationData(responseObj) {
