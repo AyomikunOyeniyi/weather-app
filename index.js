@@ -54,8 +54,13 @@ function populateResultsDisplay(weatherObj) {
     const feelPara = document.querySelector('.feels-like');
     const humPara = document.querySelector('.humidity');
 
-    condPara.textContent += `${weatherObj.condition}`
-    tempPara.textContent += `${weatherObj.temperature}`
-    feelPara.textContent += `${weatherObj.feelsLike}`
-    humPara.textContent += `${weatherObj.humidity}`
+    condPara.textContent = "";
+    tempPara.textContent = "";
+    feelPara.textContent = "";
+    humPara.textContent = "";
+
+    condPara.textContent += `Condition: ${weatherObj.condition}`
+    tempPara.textContent += `Temperature: ${weatherObj.temperature}`
+    feelPara.textContent += `Feels Like: ${weatherObj.feelsLike}`
+    humPara.textContent += `Humidity: ${weatherObj.humidity}`
 }
