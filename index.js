@@ -2,7 +2,6 @@ const weatherLocation = document.getElementById('location');
 const searchBtn = document.querySelector('.search-btn');
 const celBtn = document.querySelector('.c-btn');
 const fahrBtn = document.querySelector('.f-btn');
-const resultsDisplay = document.querySelector('.result-display');
 
 export default function checkMetrics(fahrenheitState) {
     if (fahrenheitState) {
