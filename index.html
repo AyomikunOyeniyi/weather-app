@@ -8,16 +8,20 @@
     <script src="index.js" type="module"></script>
 </head>
 <body>
-    <div>
+    <div class="header">
         <h1>Skypiea</h1>
         <p>Weather from all around the world. Occasionally edited by Big News Morgan</p>
-        <button class="f-btn">Fahrenheit</button>
-        <button class="c-btn">Celsius</button>
+        <div class="button-holder">
+            <button class="f-btn">Fahrenheit</button>
+            <button class="c-btn">Celsius</button>
+        </div>
     </div>
-    <div>
+    <div class="body">
         <label for="location">What location are we checking today?</label>
-        <input id="location" type="text"/>
-        <button class="search-btn">Search</button>
+        <div class="search">
+            <input id="location" type="text"/>
+            <button class="search-btn">Search</button>
+        </div>
         <div class="result-display">
             <p class="condition"></p>
             <p class="temperature"></p>
