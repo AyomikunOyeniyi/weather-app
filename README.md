@@ -1,0 +1,1 @@
+This is a hyper-minimalistic (as usual) weather app. Definitely not me being too lazy to style.
